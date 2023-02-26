@@ -4,7 +4,16 @@ function App() {
 
   return (
     <div className="App">
-      <Calendar />
+
+      <div className="left">
+
+      </div>
+
+      <div className="right">
+        <h1>Calendar event organiser</h1>
+        <Calendar />
+      </div>
+      
     </div>
   )
 }
