@@ -14,12 +14,27 @@ body {
   color: #eee;
 }
 
+.App {
+  display: flex;
+  min-height: 100vh;
+}
+
+.left {
+  width: 40vw;
+  border-right: 1px solid #eee;
+}
+
+.right {
+  width: 60vw;
+}
+
 /*-----Calendar styles-----*/
 
 .datepicker-container {
   color: #111;
-  width:fit-content;
-  text-align:center;
+  width: fit-content;
+  height: fit-content;
+  text-align: center;
   box-shadow: 3px 3px 15px #161616;
 }
 
@@ -39,10 +54,10 @@ body {
 }
 
 .datepicker-days-row {
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  display: grid;
+  grid-template-columns: repeat(7, auto);
   border-bottom: 1px solid #222;
-  background:white;
+  background: white;
 }
 
 .datepicker-days-row .day { padding:10px 2px; }
@@ -58,20 +73,20 @@ body {
 }
 
 .datepicker-body option:hover {
-  background:#74b5e3;
-  color:black;
+  background: #74b5e3;
+  color: black;
 }
 
 .date-range{
-  display:grid;
-  margin:20px 0;
+  display: grid;
+  margin: 20px 0;
 }
 
 .monthWrap {
-  display:grid;
+  display: grid;
   grid-template-columns:repeat(7, auto);
-  background:#333a41;
-  color:white;  
+  background: #333a41;
+  color: white;  
 }
 
 .hide { display: none; }
@@ -82,8 +97,8 @@ body {
 
 .highlight-from, .highlight-to {
   position: relative;
-  background:#74b5e3; 
-  color:black;
+  background: #74b5e3; 
+  color: black;
 }
 
 .highlight-from::after {
