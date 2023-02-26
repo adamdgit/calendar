@@ -13,3 +13,125 @@ body {
   background-color: #1e2225;
   color: #eee;
 }
+
+/*-----Calendar styles-----*/
+
+.datepicker-container {
+  color: #111;
+  width:fit-content;
+  text-align:center;
+  box-shadow: 3px 3px 15px #161616;
+}
+
+.datepicker-dates {
+  height:70px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.datepicker-header {
+  background:linear-gradient(white, #cbcbcb);
+}
+
+.datepicker-dates .pick-year-select, .pick-month-select {
+  padding:5px 20px;
+}
+
+.datepicker-days-row {
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  border-bottom: 1px solid #222;
+  background:white;
+}
+
+.datepicker-days-row .day { padding:10px 2px; }
+
+.datepicker-body { cursor: pointer; }
+
+.datepicker-body option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+}
+
+.datepicker-body option:hover {
+  background:#74b5e3;
+  color:black;
+}
+
+.date-range{
+  display:grid;
+  margin:20px 0;
+}
+
+.monthWrap {
+  display:grid;
+  grid-template-columns:repeat(7, auto);
+  background:#333a41;
+  color:white;  
+}
+
+.hide { display: none; }
+
+.show { display: grid; }
+
+.not-current-month { color:#999; }
+
+.highlight-from, .highlight-to {
+  position: relative;
+  background:#74b5e3; 
+  color:black;
+}
+
+.highlight-from::after {
+  content:'';
+  display: block;
+  position: absolute;
+  width: 0; height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid #74b5e3;
+  top: 14px; left: 100%;
+}
+
+.highlight-to::after {
+  content:'';
+  display: block;
+  position: absolute;
+  width: 0; height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid #74b5e3;
+  top: 13px; left: -8px;
+}
+
+.highlight-range { background:#eee; color:black; }
+.today { border: 1px solid #999; }
+
+@media screen and (max-width: 600px) {
+
+  .form-container {
+    width: 350px;
+    padding-top: 20px;
+  }
+
+  .datepicker-form {
+    padding: 1rem;
+  }
+
+  .input-wrap {
+    display: grid;
+  }
+
+  .input-wrap svg {
+    bottom: 10px;
+  }
+
+  .datepicker-container {
+    top: 100px;
+  }
+
+}
