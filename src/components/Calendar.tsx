@@ -3,10 +3,10 @@ import { useRef, useEffect } from 'react'
 const yearData:Number[] = []
 
 // create dynamic dates based on current year forward
-yearData.push(Number(new Date().toLocaleString('en-au', { year:'numeric' })))
+yearData.push(Number(new Date().getFullYear()))
 for (let i=1; i<20; i++) {
   yearData.push(Number(yearData[0]) +i)
-}
+}  
 
 export default function Calendar() {
 
