@@ -4,7 +4,8 @@ import EventPopup from "./components/eventPopup"
 
 function App() {
 
-  const [popupIsVisible, setPopupIsVisible] = useState(false)
+  const [popupIsVisible, setPopupIsVisible] = useState<Boolean>(false)
+  const [selectedDate, setSelectedDate] = useState<String>('')
 
   return (
     <div className="App">
@@ -17,10 +18,11 @@ function App() {
         <h1>Calendar event organiser</h1>
         <Calendar 
           setPopupIsVisible={setPopupIsVisible} 
+          setSelectedDate={setSelectedDate}
         />
         <EventPopup 
           popupIsVisible={popupIsVisible} 
- 
+          selectedDate={selectedDate}
         />
       </div>
       
