@@ -6,8 +6,8 @@ export function calcCalendarDays(
 
   const data: Date[] = []; 
   // Date variables to calculate previous, current and next months dates
-  let selectedMonth = Number(monthSelect.current.value);
-  let selectedYear = Number(yearSelect.current.value);
+  let selectedMonth = Number(monthSelect.value);
+  let selectedYear = Number(yearSelect.value);
   let currentMonth = new Date(selectedYear, selectedMonth, 1);
   let firstDayPrevMonth = new Date(selectedYear, selectedMonth, 0).getDate();
   // getDay() returns day as int 0=sun, 1=mon.. 6=sat etc
