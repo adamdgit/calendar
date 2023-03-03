@@ -8,8 +8,12 @@ for (let i=1; i<20; i++) {
   yearData.push(Number(yearData[0]) +i)
 }  
 
-export default function Calendar({ setPopupIsVisible } : 
-  { setPopupIsVisible: React.SetStateAction<Boolean>}) {
+type calendarProps = {
+  setPopupIsVisible: (arg: boolean) => void,
+  setSelectedDate: (arg: string) => void
+}
+
+export default function Calendar({ setPopupIsVisible, setSelectedDate } : calendarProps) {
 
   const monthSelect = useRef();
   const yearSelect = useRef();
@@ -21,13 +25,14 @@ export default function Calendar({ setPopupIsVisible } :
   useEffect(() => {
     // set current month 
     monthSelect.current.value = new Date().getMonth();
-    setCalendarData(calcCalendarDays(monthSelect, yearSelect));
+    setCalendarData(calcCalendarDays(monthSelect.current!, yearSelect.current!));
   }, [])
 
   function createNewEvent(e) {
     console.log(e.target)
     setPopupIsVisible(true);
     // pass slected date value to popup
+    setSelectedDate(e.target.value)
   }
 
   function showHideCalendarMonths() {
