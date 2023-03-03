@@ -28,7 +28,7 @@ export default function Calendar({ setPopupIsVisible, setSelectedDate } : calend
     setCalendarData(calcCalendarDays(monthSelect.current!, yearSelect.current!));
   }, [])
 
-  function createNewEvent(e) {
+  function createNewEvent(e: Event) {
     console.log(e.target)
     setPopupIsVisible(true);
     // pass slected date value to popup
@@ -39,7 +39,7 @@ export default function Calendar({ setPopupIsVisible, setSelectedDate } : calend
     console.log(monthSelect)
     // on change year or month gets updated
     // need to render new calendar by adding new days to calendar data state
-    setCalendarData(calcCalendarDays(monthSelect, yearSelect))
+    setCalendarData(calcCalendarDays(monthSelect.current!, yearSelect.current!))
   }
 
   return (
