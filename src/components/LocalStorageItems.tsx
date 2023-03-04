@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome/"
 import { localStorageProps } from "../App"
 
 export default function LocalStorageItems({ lsItems }:localStorageProps[]) {
