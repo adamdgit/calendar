@@ -50,7 +50,7 @@ export default function Calendar({ setPopupIsVisible, setSelectedDate } : calend
           <div className="datepicker-dates">
             <span className="year-month">
               <span className="pick-year">Year:
-                <select ref={yearSelect} onChange={() => showHideCalendarMonths(monthSelect, yearSelect)} className="pick-year-select">
+                <select ref={yearSelect} onChange={() => showHideCalendarMonths()} className="pick-year-select">
                   {
                     yearData.map(year => (
                       <option 
@@ -63,7 +63,7 @@ export default function Calendar({ setPopupIsVisible, setSelectedDate } : calend
                 </select>
               </span>
               <span className="pick-month">Month:
-                <select ref={monthSelect} onChange={() => showHideCalendarMonths(monthSelect, yearSelect)} className="pick-month-select">
+                <select ref={monthSelect} onChange={() => showHideCalendarMonths()} className="pick-month-select">
                   <option value="0">Jan</option>
                   <option value="1">Feb</option>
                   <option value="2">Mar</option>
@@ -100,11 +100,11 @@ export default function Calendar({ setPopupIsVisible, setSelectedDate } : calend
                 key={i}
                 onClick={(e) => createNewEvent(e)}
                 className={
-                  day.toLocaleString('en-au', { day: '2-digit', month: '2-digit', year: 'numeric' }) === new Date().toLocaleString('en-au', { day: '2-digit', month: '2-digit', year: 'numeric' }) ? 'date today' 
+                  day.toLocaleString('en-us', { day: '2-digit', month: '2-digit', year: 'numeric' }) === new Date().toLocaleString('en-us', { day: '2-digit', month: '2-digit', year: 'numeric' }) ? 'date today' 
                 : day.getMonth() === Number(monthSelect.current.value) ? 'date'
                 : 'date not-current-month'} 
-                value={day.toLocaleString('en-au', { day: '2-digit', month: '2-digit', year: 'numeric' })}>
-                {day.toLocaleString('en-au', { day: '2-digit' })}
+                value={day.toLocaleString('en-us', { day: '2-digit', month: '2-digit', year: 'numeric' })}>
+                {day.toLocaleString('en-us', { day: '2-digit' })}
               </option>
             ))
           }
