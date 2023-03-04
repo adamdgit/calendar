@@ -21,19 +21,52 @@ body {
 
 .left {
   width: 40vw;
-  border-right: 1px solid #eee;
+  border-right: 1px solid #333a41;
+  padding: 2rem;
+}
+
+.left h1 {
+  margin-bottom: 2rem;
 }
 
 .right {
   width: 60vw;
+  padding: 2rem;
 }
 
 .popup {
-  color: #111;
-  background-color: lightblue;
+  color: white;
+  background-color: #333a41;
   padding: 2rem;
   width: 400px;
   height: 400px;
+}
+
+/*--- Local storage left pane ---*/
+
+.lsItemsWrap {
+  display: grid;
+  gap: 1rem;
+}
+
+.lsItem {
+  display: flex;
+  gap: 1.5rem;
+  background-color: #333a41;
+  padding: 1rem;
+  align-items: center;
+}
+
+.lsItemText {
+  display: grid;
+}
+
+.removeBtn {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  fill: white;
+  background: #333a41;
 }
 
 /*-----Calendar styles-----*/
@@ -47,10 +80,10 @@ body {
 }
 
 .datepicker-dates {
-  height:70px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .datepicker-header {
@@ -58,7 +91,7 @@ body {
 }
 
 .datepicker-dates .pick-year-select, .pick-month-select {
-  padding:5px 20px;
+  padding: 5px 20px;
 }
 
 .datepicker-days-row {
