@@ -1,5 +1,7 @@
 import { useRef, useEffect, useState } from 'react'
 import { calcCalendarDays } from "../utils/calcDays"
+import DayOption from './DayOption'
+import EventPopup from './eventPopup'
 
 // create dynamic dates based on current year forward
 const yearData:Number[] = []
@@ -8,12 +10,7 @@ for (let i=1; i<20; i++) {
   yearData.push(Number(yearData[0]) +i)
 }  
 
-type calendarProps = {
-  setPopupIsVisible: (arg: boolean) => void,
-  setSelectedDate: (arg: string) => void
-}
-
-export default function Calendar({ setPopupIsVisible, setSelectedDate } : calendarProps) {
+export default function Calendar() {
 
   const monthSelect = useRef();
   const yearSelect = useRef();
@@ -28,13 +25,6 @@ export default function Calendar({ setPopupIsVisible, setSelectedDate } : calend
     setCalendarData(calcCalendarDays(monthSelect.current!, yearSelect.current!));
   }, [])
 
-  function createNewEvent(e: Event) {
-    console.log(e.target)
-    setPopupIsVisible(true);
-    // pass slected date value to popup
-    setSelectedDate(e.target.value)
-  }
-
   function showHideCalendarMonths() {
     console.log(monthSelect)
     // on change year or month gets updated
@@ -48,36 +38,34 @@ export default function Calendar({ setPopupIsVisible, setSelectedDate } : calend
         <div className="datepicker-header">
 
           <div className="datepicker-dates">
-            <span className="year-month">
-              <span className="pick-year">Year:
-                <select ref={yearSelect} onChange={() => showHideCalendarMonths()} className="pick-year-select">
-                  {
-                    yearData.map(year => (
-                      <option 
-                        key={year.toString()} 
-                        value={year.toString()}>
-                        {year.toString()}
-                      </option>
-                    ))
-                  }
-                </select>
-              </span>
-              <span className="pick-month">Month:
-                <select ref={monthSelect} onChange={() => showHideCalendarMonths()} className="pick-month-select">
-                  <option value="0">Jan</option>
-                  <option value="1">Feb</option>
-                  <option value="2">Mar</option>
-                  <option value="3">Apr</option>
-                  <option value="4">May</option>
-                  <option value="5">Jun</option>
-                  <option value="6">Jul</option>
-                  <option value="7">Aug</option>
-                  <option value="8">Sep</option>
-                  <option value="9">Oct</option>
-                  <option value="10">Nov</option>
-                  <option value="11">Dec</option>
-                </select>
-              </span>
+            <span className="pick-year">Year: 
+              <select ref={yearSelect} onChange={() => showHideCalendarMonths()} className="pick-year-select">
+                {
+                  yearData.map(year => (
+                    <option 
+                      key={year.toString()} 
+                      value={year.toString()}>
+                      {year.toString()}
+                    </option>
+                  ))
+                }
+              </select>
+            </span>
+            <span className="pick-month">Month: 
+              <select ref={monthSelect} onChange={() => showHideCalendarMonths()} className="pick-month-select">
+                <option value="0">Jan</option>
+                <option value="1">Feb</option>
+                <option value="2">Mar</option>
+                <option value="3">Apr</option>
+                <option value="4">May</option>
+                <option value="5">Jun</option>
+                <option value="6">Jul</option>
+                <option value="7">Aug</option>
+                <option value="8">Sep</option>
+                <option value="9">Oct</option>
+                <option value="10">Nov</option>
+                <option value="11">Dec</option>
+              </select>
             </span>
           </div>
 
@@ -96,16 +84,11 @@ export default function Calendar({ setPopupIsVisible, setSelectedDate } : calend
           <div className='monthWrap' data-month={monthSelect.current?.value} data-year={yearSelect.current?.value} >
           {
             calendarData.map((day, i) => (
-              <option 
+              <DayOption 
                 key={i}
-                onClick={(e) => createNewEvent(e)}
-                className={
-                  day.toLocaleString('en-us', { day: '2-digit', month: '2-digit', year: 'numeric' }) === new Date().toLocaleString('en-us', { day: '2-digit', month: '2-digit', year: 'numeric' }) ? 'date today' 
-                : day.getMonth() === Number(monthSelect.current.value) ? 'date'
-                : 'date not-current-month'} 
-                value={day.toLocaleString('en-us', { day: '2-digit', month: '2-digit', year: 'numeric' })}>
-                {day.toLocaleString('en-us', { day: '2-digit' })}
-              </option>
+                monthSelect={monthSelect.current}
+                day={day} 
+              />
             ))
           }
           </div>
