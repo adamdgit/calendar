@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import Calendar from "./components/Calendar"
-import EventPopup from "./components/eventPopup"
 import LocalStorageItems from "./components/LocalStorageItems"
 
 export type localStorageProps = {
@@ -10,8 +9,6 @@ export type localStorageProps = {
 
 function App() {
 
-  const [popupIsVisible, setPopupIsVisible] = useState<boolean>(false)
-  const [selectedDate, setSelectedDate] = useState<Date>()
   const [lsItems, setLsItems] = useState<localStorageProps[]>([])
 
   // get events stored in LS on mount
@@ -32,14 +29,7 @@ function App() {
 
       <div className="right">
         <h2>Calendar event organiser</h2>
-        <Calendar 
-          setPopupIsVisible={setPopupIsVisible} 
-          setSelectedDate={setSelectedDate}
-        />
-        <EventPopup 
-          popupIsVisible={popupIsVisible} 
-          selectedDate={selectedDate}
-        />
+        <Calendar />
       </div>
       
     </div>
