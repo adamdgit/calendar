@@ -21,11 +21,11 @@ export default function eventPopup({ popupIsVisible, selectedDate } : eventPopup
   };
   
   return (
-    <form onSubmit={(e) => handleSubmit(e)} className='popup' style={popupIsVisible ? {opacity: '1'} : {opacity: '0'}}>
+    <div className='popup' style={popupIsVisible ? {opacity: '1', pointerEvents: 'all'} : {opacity: '0', pointerEvents: 'none'}}>
       <p>Selected Date: {selectedDate}</p>
       <p>Add event description:</p>
       <input type="text" onChange={(e) => setDescription(e.target.value)} />
-      <button type="submit">Create reminder</button>
-    </form>
+      <button onClick={(e) => handleSubmit(e)}>Create reminder</button>
+    </div>
   )
 };
