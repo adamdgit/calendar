@@ -1,11 +1,11 @@
 import { localStorageProps } from "../App"
 
-export default function LocalStorageItems({ lsItems }:localStorageProps[]) {
-  
+export default function LocalStorageItems({ lsItems }:{ lsItems: localStorageProps[] | []}) {
+
   return (
     <div className="lsItemsWrap">
     {
-      lsItems.sort((a, b) => Date.parse(a.Date) - Date.parse(b.Date))
+      lsItems?.sort((a, b) => Date.parse(a.Date) - Date.parse(b.Date))
       .map((item, i) => (
         <li key={i} className="lsItem">
           <button className="removeBtn">
@@ -16,6 +16,7 @@ export default function LocalStorageItems({ lsItems }:localStorageProps[]) {
             </svg>
           </button>
           <div className="lsItemText">
+            <span>ID: {item.Id}</span>
             <span style={{fontSize: '1.2rem'}}>{new Date(item.Date).toLocaleDateString('en-au')}</span>
             <span>{item.Description}</span>
           </div>
