@@ -7,7 +7,7 @@ export default function DayOption({day, monthSelect}:any) {
   const [popupIsVisible, setPopupIsVisible] = useState<boolean>(false);
   const [isSelected, setIsSlected] = useState<boolean>(false)
 
-  function createNewEvent(e: Event) {
+  function createNewEvent(e: any) {
     console.log(e.target)
     setPopupIsVisible(true);
     setIsSlected(true);
@@ -19,7 +19,6 @@ export default function DayOption({day, monthSelect}:any) {
     <div style={{position: 'relative'}}>
       <button
         style={isSelected ? {background: '#74b5e3', color: 'black'} : {background: ''}}
-        onBlur={() => {setPopupIsVisible(false), setIsSlected(false)}} 
         onClick={(e) => createNewEvent(e)}
         className={
           day.toLocaleString('en-us', { day: '2-digit', month: '2-digit', year: 'numeric' }) === new Date().toLocaleString('en-us', { day: '2-digit', month: '2-digit', year: 'numeric' }) ? 'date today' 
