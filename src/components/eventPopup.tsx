@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react"
+import { useState } from "react"
 
 type eventPopupProps = {
   popupIsVisible: boolean,
@@ -9,10 +9,10 @@ export default function eventPopup({ popupIsVisible, selectedDate } : eventPopup
   
   const [description, setDescription] = useState<String>('')
 
-  function handleSubmit(e: FormEvent) {
-    e.preventDefault();
+  function handleSubmit() {
     const LS_ITEMS = JSON.parse(localStorage.getItem('Calendar events')) || [];
     let newStorage = { 
+      'Id': LS_ITEMS ? LS_ITEMS.length +1 : 1,
       'Date': selectedDate,
       'Description': description
     };
@@ -25,7 +25,7 @@ export default function eventPopup({ popupIsVisible, selectedDate } : eventPopup
       <p>Selected Date: {selectedDate}</p>
       <p>Add event description:</p>
       <input type="text" onChange={(e) => setDescription(e.target.value)} />
-      <button onClick={(e) => handleSubmit(e)}>Create reminder</button>
+      <button onClick={() => handleSubmit()}>Create reminder</button>
     </div>
   )
 };
