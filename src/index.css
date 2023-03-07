@@ -82,12 +82,13 @@ body {
 /*-----Calendar styles-----*/
 
 .datepicker-container {
-  color: #111;
+  margin: 0 auto;
   width: 100%;
   max-width: 750px;
   height: fit-content;
   text-align: center;
   box-shadow: 3px 3px 15px #161616;
+  color: #111;
 }
 
 .datepicker-dates {
