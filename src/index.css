@@ -41,27 +41,17 @@ body {
 
 .popup {
   position: absolute;
-  left: -200%;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
   color: white;
   background-color: #4a545e;
   padding: 2rem;
   width: 400px;
   height: 400px;
   pointer-events: none;
-  box-shadow: 3px 3px 17px 0 rgb(24, 24, 24);
+  box-shadow: 0 0 0 10000px rgba(24, 24, 24, 0.7);
   z-index: 9999;
-}
-
-.arrow-up {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0; 
-  height: 0; 
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid #4a545e;
 }
 
 /*--- Local storage left pane ---*/
