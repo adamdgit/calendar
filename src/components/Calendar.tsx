@@ -10,7 +10,8 @@ for (let i=1; i<20; i++) {
   yearData.push(Number(yearData[0]) +i)
 }  
 
-export default function Calendar() {
+export default function Calendar(
+  { setPopupIsVisible, setSelectedDate }: any) {
 
   const monthSelect = useRef();
   const yearSelect = useRef();
@@ -87,6 +88,8 @@ export default function Calendar() {
               <DayOption 
                 key={i}
                 monthSelect={monthSelect.current}
+                setPopupIsVisible={setPopupIsVisible}
+                setSelectedDate={setSelectedDate}
                 day={day} 
               />
             ))
