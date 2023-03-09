@@ -22,9 +22,8 @@ export default function eventPopup({ popupIsVisible, selectedDate } : eventPopup
   
   return (
     <div className='popup' style={popupIsVisible ? {opacity: '1', pointerEvents: 'all'} : {opacity: '0', pointerEvents: 'none'}}>
-      <div className="arrow-up"></div>
-      <p>Selected Date: {selectedDate}</p>
-      <p>Add event description:</p>
+      <p>Selected: {selectedDate}</p>
+      <p>Add event info:</p>
       <input type="text" onChange={(e) => setDescription(e.target.value)} />
       <button onClick={() => createNewLsItem()}>Create reminder</button>
     </div>
