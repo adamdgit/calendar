@@ -1,6 +1,27 @@
-import { localStorageProps } from "../App"
+import { useEffect, useState } from "react";
 
-export default function LocalStorageItems({ lsItems }:{ lsItems: localStorageProps[] | []}) {
+export type localStorageProps = {
+  'Id': number,
+  'Date': string,
+  'Description': string
+}
+
+export default function LocalStorageItems() {
+  
+  const [lsItems, setLsItems] = useState<localStorageProps[] | []>([])
+
+  // get events stored in LS on mount
+  useEffect(() => {
+    const LS_ITEMS:localStorageProps[] = JSON.parse(localStorage.getItem('Calendar events'));
+    setLsItems(LS_ITEMS === null ? [] : LS_ITEMS);
+  },[])
+
+  function removeLSItem(itemID: number) {
+    // filter out selected item by ID and save new storage
+    let newStorage = lsItems.filter(a => a.Id !== itemID);
+    localStorage.setItem('Calendar events', JSON.stringify(newStorage));
+    setLsItems(newStorage);
+  }
 
   return (
     <div className="lsItemsWrap">
@@ -8,7 +29,7 @@ export default function LocalStorageItems({ lsItems }:{ lsItems: localStoragePro
       lsItems?.sort((a, b) => Date.parse(a.Date) - Date.parse(b.Date))
       .map((item, i) => (
         <li key={i} className="lsItem">
-          <button className="removeBtn">
+          <button className="removeBtn" onClick={() => removeLSItem(item.Id)}>
             <svg 
               xmlns="http://www.w3.org/2000/svg"  
               viewBox="0 0 448 512">
