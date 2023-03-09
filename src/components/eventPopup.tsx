@@ -9,10 +9,10 @@ export default function eventPopup({ popupIsVisible, selectedDate } : eventPopup
   
   const [description, setDescription] = useState<String>('')
 
-  function handleSubmit() {
+  function createNewLsItem() {
     const LS_ITEMS = JSON.parse(localStorage.getItem('Calendar events')) || [];
     let newStorage = { 
-      'Id': LS_ITEMS ? LS_ITEMS.length +1 : 1,
+      'Id': LS_ITEMS.length !== 0 ? LS_ITEMS[LS_ITEMS.length -1].Id +1 : 1,
       'Date': selectedDate,
       'Description': description
     };
@@ -22,10 +22,11 @@ export default function eventPopup({ popupIsVisible, selectedDate } : eventPopup
   
   return (
     <div className='popup' style={popupIsVisible ? {opacity: '1', pointerEvents: 'all'} : {opacity: '0', pointerEvents: 'none'}}>
+      <div className="arrow-up"></div>
       <p>Selected Date: {selectedDate}</p>
       <p>Add event description:</p>
       <input type="text" onChange={(e) => setDescription(e.target.value)} />
-      <button onClick={() => handleSubmit()}>Create reminder</button>
+      <button onClick={() => createNewLsItem()}>Create reminder</button>
     </div>
   )
 };
