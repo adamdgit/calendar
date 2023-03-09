@@ -53,30 +53,30 @@ export default function Calendar() {
             </span>
             <span className="pick-month">Month: 
               <select ref={monthSelect} onChange={() => showHideCalendarMonths()} className="pick-month-select">
-                <option value="0">Jan</option>
-                <option value="1">Feb</option>
-                <option value="2">Mar</option>
-                <option value="3">Apr</option>
+                <option value="0">January</option>
+                <option value="1">February</option>
+                <option value="2">March</option>
+                <option value="3">April</option>
                 <option value="4">May</option>
-                <option value="5">Jun</option>
-                <option value="6">Jul</option>
-                <option value="7">Aug</option>
-                <option value="8">Sep</option>
-                <option value="9">Oct</option>
-                <option value="10">Nov</option>
-                <option value="11">Dec</option>
+                <option value="5">June</option>
+                <option value="6">July</option>
+                <option value="7">August</option>
+                <option value="8">September</option>
+                <option value="9">October</option>
+                <option value="10">November</option>
+                <option value="11">December</option>
               </select>
             </span>
           </div>
 
           <div className="datepicker-days-row">
-            <div className="day">Mon</div>
-            <div className="day">Tue</div>
-            <div className="day">Wed</div>
-            <div className="day">Thu</div>
-            <div className="day">Fri</div>
-            <div className="day">Sat</div>
-            <div className="day">Sun</div>
+            <div className="day">Monday</div>
+            <div className="day">Tuesday</div>
+            <div className="day">Wednesday</div>
+            <div className="day">Thursday</div>
+            <div className="day">Friday</div>
+            <div className="day">Saturday</div>
+            <div className="day">Sunday</div>
           </div>
         </div>
 
