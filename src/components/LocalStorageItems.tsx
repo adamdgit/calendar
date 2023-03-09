@@ -1,21 +1,12 @@
-import { useEffect, useState } from "react";
+import { localStorageData } from "../App";
 
-export type localStorageProps = {
-  'Id': number,
-  'Date': string,
-  'Description': string
+type lsItemsProps = {
+  lsItems: localStorageData[] | [],
+  setLsItems: (args: localStorageData[] | []) => void
 }
 
-export default function LocalStorageItems() {
+export default function LocalStorageItems({ lsItems, setLsItems } : lsItemsProps) {
   
-  const [lsItems, setLsItems] = useState<localStorageProps[] | []>([])
-
-  // get events stored in LS on mount
-  useEffect(() => {
-    const LS_ITEMS:localStorageProps[] = JSON.parse(localStorage.getItem('Calendar events'));
-    setLsItems(LS_ITEMS === null ? [] : LS_ITEMS);
-  },[])
-
   function removeLSItem(itemID: number) {
     // filter out selected item by ID and save new storage
     let newStorage = lsItems.filter(a => a.Id !== itemID);
