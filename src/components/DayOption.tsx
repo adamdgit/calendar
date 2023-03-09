@@ -1,10 +1,16 @@
 import { useState } from "react";
-import EventPopup from "./eventPopup";
 
-export default function DayOption({day, monthSelect}:any) {
+type dayOptionProps = {
+  day: Date,
+  monthSelect: any,
+  setPopupIsVisible: (args: boolean) => void,
+  setSelectedDate: (args: string) => void
+}
 
-  const [selectedDate, setSelectedDate] = useState<Date>();
-  const [popupIsVisible, setPopupIsVisible] = useState<boolean>(false);
+export default function DayOption(
+  { day, monthSelect, setPopupIsVisible, setSelectedDate } 
+  : dayOptionProps) {
+
   const [isSelected, setIsSlected] = useState<boolean>(false)
 
   function handlePopup(e: any) {
@@ -27,10 +33,6 @@ export default function DayOption({day, monthSelect}:any) {
         value={day.toLocaleString('en-us', { day: '2-digit', month: '2-digit', year: 'numeric' })}>
         {day.toLocaleString('en-us', { day: '2-digit' })}
       </button>
-      <EventPopup 
-        popupIsVisible={popupIsVisible} 
-        selectedDate={selectedDate}
-      />
     </div>
   )
 }
