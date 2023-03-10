@@ -39,7 +39,7 @@ function App() {
       </div>
 
       <div className="right">
-        <h2>Your Calendar:</h2>
+        <h2>Select a day to add events</h2>
         <Calendar 
           setPopupIsVisible={setPopupIsVisible}
           setSelectedDate={setSelectedDate}
