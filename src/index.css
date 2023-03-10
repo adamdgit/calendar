@@ -82,10 +82,10 @@ body {
 
 .lsItem {
   display: grid;
-  grid-template-columns: 20px 1fr;
-  gap: 1.5rem;
+  grid-template-columns: 1fr 20px;
+  gap: 1rem;
   background-color: #333a41;
-  padding: 1rem;
+  padding: 1.5rem;
   align-items: center;
 }
 
@@ -98,7 +98,7 @@ body {
   gap: .6rem;
 }
 
-.removeBtn {
+.removeBtn, .editbtn {
   cursor: pointer;
   width: 15px;
   height: 15px;
