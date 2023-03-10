@@ -62,9 +62,10 @@ body {
   font-size: 1.6rem;
 }
 
-.popup input {
+.popup textarea {
   width: 300px;
-  height: 300px;
+  max-width: 350px;
+  height: 200px;
 }
 
 .popup button {
@@ -80,15 +81,21 @@ body {
 }
 
 .lsItem {
-  display: flex;
+  display: grid;
+  grid-template-columns: 20px 1fr;
   gap: 1.5rem;
   background-color: #333a41;
   padding: 1rem;
   align-items: center;
 }
 
+.lsItem:hover {
+  background-color: #4d5a66;
+}
+
 .lsItemText {
   display: grid;
+  gap: .6rem;
 }
 
 .removeBtn {
