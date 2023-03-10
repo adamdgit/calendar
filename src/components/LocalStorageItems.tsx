@@ -28,8 +28,7 @@ export default function LocalStorageItems({ lsItems, setLsItems } : lsItemsProps
             </svg>
           </button>
           <div className="lsItemText">
-            <span>ID: {item.Id}</span>
-            <span style={{fontSize: '1.2rem'}}>{new Date(item.Date).toLocaleDateString('en-au')}</span>
+            <span style={{fontSize: '1.2rem', borderBottom: '1px solid white'}}>{new Date(item.Date).toLocaleDateString('en-au', {day: '2-digit', month: 'long', year: 'numeric'})}</span>
             <span>{item.Description}</span>
           </div>
         </li>
