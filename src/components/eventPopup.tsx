@@ -30,7 +30,7 @@ export default function eventPopup(
     <div className='popup' style={popupIsVisible ? {opacity: '1', pointerEvents: 'all'} : {opacity: '0', pointerEvents: 'none'}}>
       <span className="heading">Selected: {selectedDate}</span>
       <p>Add event info:</p>
-      <input type="text" onChange={(e) => setDescription(e.target.value)} />
+      <textarea onChange={(e) => setDescription(e.target.value)}></textarea>
       <button onClick={() => createNewLsItem()}>Create reminder</button>
     </div>
   )
