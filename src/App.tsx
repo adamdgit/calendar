@@ -43,6 +43,7 @@ function App() {
         <Calendar 
           setPopupIsVisible={setPopupIsVisible}
           setSelectedDate={setSelectedDate}
+          lsItems={lsItems}
         />
       </div>
     </div>
