@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import { localStorageData } from "../App";
 
 type dayOptionProps = {
@@ -22,7 +22,7 @@ export default function DayOption(
     setSelectedDate(e.target.value)
   }
 
-  useEffect(() => {
+  useMemo(() => {
     // calculate number of items for each day
     let count = 0
     lsItems.forEach(item => {
