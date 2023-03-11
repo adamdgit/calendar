@@ -16,13 +16,14 @@ body {
 
 .App {
   display: flex;
-  min-height: 100vh;
+  max-height: 100vh;
 }
 
 .left {
   width: 40vw;
   border-right: 1px solid #333a41;
   padding: 2rem;
+  overflow-y: auto;
 }
 
 .left h1 {
@@ -80,7 +81,13 @@ body {
   gap: 1rem;
 }
 
+.monthEventWrap {
+  display: grid;
+  gap: 1rem;
+}
+
 .lsItem {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 20px;
   gap: 1rem;
@@ -155,11 +162,22 @@ body {
   aspect-ratio: 1/1;
   background: unset;
   color: white;
+  background-color: #4d5a66;
+  font-size: 1.1rem;
 }
 
 .date:hover {
   background: #74b5e3;
   color: black;
+}
+
+.event-number {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: .9rem;
+  z-index: 9999;
+  color: #55d0ff;
 }
 
 .date-range{
@@ -170,6 +188,7 @@ body {
 .monthWrap {
   display: grid;
   grid-template-columns:repeat(7, auto);
+  gap: 2px;
   background: #333a41;
   color: white;
 }
@@ -178,7 +197,7 @@ body {
 
 .show { display: grid; }
 
-.not-current-month { color:#999; }
+.not-current-month { color:#111; }
 
 .highlight-from, .highlight-to {
   position: relative;
@@ -209,7 +228,7 @@ body {
 }
 
 .highlight-range { background:#eee; color:black; }
-.today { border: 1px solid #999; }
+.today { background-color: #333a41; }
 
 @media screen and (max-width: 600px) {
 
