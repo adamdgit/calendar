@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react'
+import { localStorageData } from '../App'
 import { calcCalendarDays } from "../utils/calcDays"
 import DayOption from './DayOption'
-import EventPopup from './eventPopup'
 
 // create dynamic dates based on current year forward
 const yearData:Number[] = []
@@ -10,8 +10,14 @@ for (let i=1; i<20; i++) {
   yearData.push(Number(yearData[0]) +i)
 }  
 
+type calendarProps = {
+  setPopupIsVisible: (args: boolean) => void,
+  setSelectedDate: (args: string) => void,
+  lsItems: localStorageData[]
+}
+
 export default function Calendar(
-  { setPopupIsVisible, setSelectedDate }: any) {
+  { setPopupIsVisible, setSelectedDate, lsItems }: calendarProps) {
 
   const monthSelect = useRef();
   const yearSelect = useRef();
@@ -90,7 +96,8 @@ export default function Calendar(
                 monthSelect={monthSelect.current}
                 setPopupIsVisible={setPopupIsVisible}
                 setSelectedDate={setSelectedDate}
-                day={day} 
+                day={day}
+                lsItems={lsItems}
               />
             ))
           }
